@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+  font-family: Inter;
+  margin: 0;
+}
+
+.chat-bot{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background-color: black;
+  font-size: 20px;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+/* violet + cool grays */
+:root {
+  /* Primary Colors */
+  --primary-color: #8C52FF;
+  --accent-color: #00C9A7;
+
+  /* Neutral Colors */
+  --background-color: #F5F5F5;
+  --surface-color: #FFFFFF;
+  --card-bg-color: #F0F0F0;
+
+  /* Text Colors */
+  --text-color: #2E2E2E;
+  --subtle-text: #6B6B6B;
+
+  /* Border / Shadows */
+  --border-color: #DDE2E8;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Indigo + Sky blue */
+/* :root {
+  /* Primary Colors */
+  /* --primary-color: #4F46E5;
+  --accent-color: #38BDF8; */
+
+  /* Neutral Colors */
+  /* --background-color: #FFFFFF;
+  --surface-color: #F9FAFB;
+  --card-bg-color: #F1F5F9; */
+
+  /* Text Colors */
+  /* --text-color: #1E293B;
+  --subtle-text: #64748B; */
+
+  /* Border / Shadows */
+  /* --border-color: #E2E8F0;
+  --shadow-color: rgba(15, 23, 42, 0.05); */
+/* } */ 
+
+
+
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */

@@ -1,0 +1,72 @@
+.loginCont{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-left{
+    width: 50%;
+    height: 100vh;
+    border-bottom-right-radius: 30px;
+    /* background-color: aqua; */
+    border-top-right-radius: 30px;
+    overflow: hidden;
+
+}
+.login-right{
+    position: relative;
+    width: 50%;
+    height: 100vh;
+    display: flex;flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.login-right-cont{
+    width: 60%;
+    height: 60vh;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 10px;
+    display: flex;flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login-form{
+    width: 70%;
+    height: 45vh;
+    display: flex;flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+.login-form div{
+    display: flex;flex-direction: column;
+}
+.login-form label{
+    font-size: 15px;
+}
+.login-form input{
+    font-size: 15px;
+    padding: 5px 20px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.37);
+}
+.login-form p{
+    font-size: 12px;
+}
+.login-form button{
+    border: none;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.loginNavigate{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}
