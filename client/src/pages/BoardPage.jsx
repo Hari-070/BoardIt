@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 import '../stylesheets/boardPage.css';
 import { FaRegTrashAlt } from "react-icons/fa";
 import logo from '../assets/logo.png'
+import Loader from '../components/Loader';
 
 const BoardPage = () => {
   const { id } = useParams();
@@ -21,6 +22,8 @@ const BoardPage = () => {
   const handleLogout=(e)=>{
     e.preventDefault()
     localStorage.removeItem('token')
+    localStorage.removeItem('userName')
+    toast.success("logged out successfully!")
     navigate('/')
   }
 
@@ -87,7 +90,7 @@ const BoardPage = () => {
     }
   };
 
-  if (!board) return <div className="loading">Loading...</div>;
+  if (!board) return <div style={{width:'100%',height:"100vh",display:"flex",justifyContent:"center",alignItems:"center"}}><Loader/></div>;
 
   return (
     <div className="board-page-container">

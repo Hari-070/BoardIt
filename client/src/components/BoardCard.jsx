@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 
-const BoardCard = ({ board }) => {
+const BoardCard = ({ board, fetchBoards }) => {
     const navigate=useNavigate()
     const {auth}=useAuth()
 
@@ -18,6 +18,7 @@ const BoardCard = ({ board }) => {
                 }
             }).then(res=>{
                 toast.success(res.data.message)
+                fetchBoards()
                 navigate('/home')
             })
         } catch (error) {
@@ -26,8 +27,8 @@ const BoardCard = ({ board }) => {
     }
 
   return (
-    <div className="board-card" onClick={()=>navigate(`/board/${board._id}`)}>
-      <div className="board-card-images">
+    <div className="board-card" >
+      <div className="board-card-images" onClick={()=>navigate(`/board/${board._id}`)}>
         {board.images.length > 0 ? (
           board.images.slice(0,3).map((img) => (
             <img key={img._id} src={img.url} className="board-img" />
@@ -43,7 +44,7 @@ const BoardCard = ({ board }) => {
       <div className="board-card-text">
         <h3>{board.title}</h3>
         <p>{board.description}</p>
-        <p style={{color:"red"}} onClick={handleDelete}><FaRegTrashAlt/></p>
+        <p style={{color:"red",zIndex:"1000"}} onClick={handleDelete}><FaRegTrashAlt/></p>
       </div>
     </div>
   );

@@ -7,12 +7,14 @@ import '../stylesheets/landing.css';
 import toast from 'react-hot-toast';
 import logo from '../assets/logo.png'
 import { useNavigate } from 'react-router-dom';
+import Loader from '../components/Loader';
 
 const Home = () => {
   const { auth, name } = useAuth();
   const [boards, setBoards] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [newBoard, setNewBoard] = useState({ title: '', description: '' });
+  const [loading,setLoading]=useState(false)
   const navigate=useNavigate()
 
   const fetchBoards = async () => {
@@ -23,18 +25,22 @@ const Home = () => {
         },
       });
       setBoards(res.data);
+      setLoading(false)
     } catch (err) {
-      toast.error(err?.response?.data?.message || 'Error fetching boards');
+      toast.error(err.response.data.message || 'Error fetching boards');
     }
   };
 
   useEffect(() => {
+    setLoading(true)
     fetchBoards();
   }, [auth.token]);
 
   const handleLogout=(e)=>{
     e.preventDefault()
     localStorage.removeItem('token')
+    localStorage.removeItem('userName')
+    toast.success("logged out successfully!")
     navigate('/')
   }
 
@@ -61,6 +67,8 @@ const Home = () => {
       toast.error(err?.response?.data?.message || 'Failed to create board');
     }
   };
+
+    if(loading) return <div style={{width:'100%',height:"100vh",display:"flex",justifyContent:"center",alignItems:"center"}}><Loader/></div>;
 
   return (
     <div className="home-container">
@@ -89,7 +97,7 @@ const Home = () => {
       ) : (
         <div className="boards-grid">
           {boards.map((board) => (
-            <BoardCard key={board._id} board={board} />
+            <BoardCard key={board._id} board={board} fetchBoards={fetchBoards}/>
           ))}
           <div className="adding-board" onClick={() => setShowModal(true)}>
             <h1>+</h1>

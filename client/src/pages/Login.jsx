@@ -22,11 +22,12 @@ const Login = () => {
         await axios.post('https://boardit.onrender.com/api/login',{email,password})
         .then(res=>{
             localStorage.setItem('token', res.data.token);
-            console.log(res.data.message)
+            // console.log(res.data.message)
             toast.success(res.data.message)
             navigate('/home')
-            setName(res.data.username)
+            localStorage.setItem('userName',res.data.username);
             setAuth({...prev,token:localStorage.getItem('token')})
+            setName(localStorage.getItem('userName'))
             
         })
         .catch(err=>{

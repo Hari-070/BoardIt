@@ -75,11 +75,14 @@
 }
 
 .board-images-wrapper {
-  margin-left: 20px;
+  width: 80%;
+  /* margin-left: 20px; */
+  /* background-color: aqua; */
   margin-bottom: 50px;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 20px;
 }
 
 .image-container {
