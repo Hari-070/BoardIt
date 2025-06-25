@@ -17,7 +17,7 @@ const Home = () => {
 
   const fetchBoards = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/api/getBoards', {
+      const res = await axios.get('https://boardit.onrender.com/api/getBoards', {
         headers: {
           Authorization: `Bearer ${auth.token}`,
         },
@@ -45,7 +45,7 @@ const Home = () => {
 
     try {
       await axios.post(
-        'http://localhost:3000/api/createBoard',
+        'https://boardit.onrender.com/api/createBoard',
         newBoard,
         {
           headers: {
@@ -79,7 +79,13 @@ const Home = () => {
       <h3 className="section-title">Your Moodboards</h3>
 
       {boards.length === 0 ? (
-        <p className="no-boards">You have no moodboards yet.</p>
+            <div>
+            <p className="no-boards">You have no moodboards yet.</p>
+            <div className="adding-board" onClick={() => setShowModal(true)}>
+            <h1>+</h1>
+            <p>Add New Board</p>
+            </div>
+            </div>
       ) : (
         <div className="boards-grid">
           {boards.map((board) => (

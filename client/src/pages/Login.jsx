@@ -19,7 +19,7 @@ const Login = () => {
             toast.error("Fill all the details!")
             return
         }
-        await axios.post('http://localhost:3000/api/login',{email,password})
+        await axios.post('https://boardit.onrender.com/api/login',{email,password})
         .then(res=>{
             localStorage.setItem('token', res.data.token);
             console.log(res.data.message)

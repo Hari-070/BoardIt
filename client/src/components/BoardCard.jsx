@@ -12,7 +12,7 @@ const BoardCard = ({ board }) => {
 
     const handleDelete=async()=>{
         try {
-            await axios.delete(`http://localhost:3000/api/board/${board._id}`,{
+            await axios.delete(`https://boardit.onrender.com/api/board/${board._id}`,{
                 headers: {
                      Authorization: `Bearer ${auth.token}`,
                 }

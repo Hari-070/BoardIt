@@ -12,8 +12,8 @@ app.use(cors())
 
 const PORT=process.env.PORT || 5000
 
-// mongoose.connect('mongodb://localhost:27017/boardIt')
-mongoose.connect('mongodb+srv://harianand2102:dQCW4Dfc3N2mRt6p@cluster0.ipz64mt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect('mongodb://localhost:27017/boardIt')
+// mongoose.connect('mongodb+srv://harianand2102:dQCW4Dfc3N2mRt6p@cluster0.ipz64mt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 .then(res=>{
     console.log("conntected successfuly")
 })

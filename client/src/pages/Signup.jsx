@@ -19,7 +19,7 @@ const Signup = () => {
             return
         }
                 
-        await axios.post('http://localhost:3000/api/signup',{name,email,password})
+        await axios.post('https://boardit.onrender.com/api/signup',{name,email,password})
         .then(res=>{
             console.log(res.data.message)
             toast.success(res.data.message)

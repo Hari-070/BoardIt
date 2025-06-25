@@ -26,7 +26,7 @@ const BoardPage = () => {
 
   const fetchBoard = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/getBoard/${id}`, {
+      const res = await axios.get(`https://boardit.onrender.com/api/getBoard/${id}`, {
         headers: {
           Authorization: `Bearer ${auth.token}`,
         },
@@ -45,7 +45,7 @@ const BoardPage = () => {
   const handleAddImage = async () => {
     if (!imageURL.trim()) return toast.error('Enter a valid image URL');
     try {
-      await axios.post(`http://localhost:3000/api/image/${id}`, { url: imageURL }, {
+      await axios.post(`https://boardit.onrender.com/api/image/${id}`, { url: imageURL }, {
         headers: { Authorization: `Bearer ${auth.token}` },
       });
       toast.success('Image added!');
@@ -59,7 +59,7 @@ const BoardPage = () => {
 
   const handleEditBoard = async () => {
     try {
-      await axios.put(`http://localhost:3000/api/board/${id}`, editedBoard, {
+      await axios.put(`https://boardit.onrender.com/api/board/${id}`, editedBoard, {
         headers: { Authorization: `Bearer ${auth.token}` },
       });
       toast.success('Board updated!');
@@ -73,7 +73,7 @@ const BoardPage = () => {
   const handleDeleteImage = async (imageId) => {
     try {
         console.log("inside delete")
-      await axios.delete(`http://localhost:3000/api/image/${id}`,{
+      await axios.delete(`https://boardit.onrender.com/api/image/${id}`,{
         data:{imageId},
         headers: { Authorization: `Bearer ${auth.token}` },
       })
