@@ -41,10 +41,10 @@ const BoardCard = ({ board, fetchBoards }) => {
           />
         )}
       </div>
-      <div className="board-card-text">
+      <div className="board-card-text" style={{position:"relative"}}>
         <h3>{board.title}</h3>
-        <p>{board.description}</p>
-        <p style={{color:"red",zIndex:"1000"}} onClick={handleDelete}><FaRegTrashAlt/></p>
+        <p>{board.description.slice(0,20)+'...'}</p>
+        <p style={{color:"red",zIndex:"1000",position:"absolute",right:"10px",bottom:"10px"}} onClick={handleDelete}><FaRegTrashAlt/></p>
       </div>
     </div>
   );

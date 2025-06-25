@@ -144,3 +144,9 @@
   background-color: #ccc;
   color: #333;
 }
+
+@media (max-width:450px) {
+    .boards-grid{
+        justify-content: center;
+    }
+}

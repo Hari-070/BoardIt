@@ -33,7 +33,8 @@ const Signup = () => {
   return (
     <div className='loginCont'>
        <div className='login-left'>
-        <img src='https://img.freepik.com/free-vector/scrapbook-vision-board-template-design_742173-28883.jpg?ga=GA1.1.1895877315.1729158490&semt=ais_hybrid&w=740' width="100%" height="100%"/>
+        {/* <img src='https://img.freepik.com/free-vector/scrapbook-vision-board-template-design_742173-28883.jpg?ga=GA1.1.1895877315.1729158490&semt=ais_hybrid&w=740' width="100%" height="100%"/> */}
+        <p><span style={{color:"white"}}>_Board.It</span> <br/>BEFORE YOU FORGET IT</p>
       </div>
       <div className='login-right'>
         <div className='login-right-cont'>

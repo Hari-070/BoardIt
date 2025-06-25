@@ -9,11 +9,21 @@
 .login-left{
     width: 50%;
     height: 100vh;
+    background-color: black;
+    color: white;
     border-bottom-right-radius: 30px;
     /* background-color: aqua; */
     border-top-right-radius: 30px;
+    /* object-fit: cover;
+    object-position: center; */
     overflow: hidden;
+    display: flex;justify-content: flex-start;align-items: center;
 
+}
+.login-left p{
+    font-size: 100px;
+    font-weight: 600;
+    margin-left: 30px;
 }
 .login-right{
     position: relative;
@@ -47,8 +57,9 @@
     font-size: 15px;
 }
 .login-form input{
+    margin-top: 5px;
     font-size: 15px;
-    padding: 5px 20px;
+    padding: 10px 20px;
     border-radius: 6px;
     border: 1px solid rgba(0, 0, 0, 0.37);
 }
@@ -62,6 +73,13 @@
     color: white;
     padding: 10px 20px;
     cursor: pointer;
+    transition: 0.2s;
+}
+.login-form button:hover{
+    transform: scale(1.02);
+}
+.login-form button:active{
+    background-color: rgba(0, 0, 0, 0.731);
 }
 
 .loginNavigate{
@@ -69,4 +87,30 @@
     top: 20px;
     left: 20px;
     cursor: pointer;
+}
+
+@media (max-width:450px) {
+    .loginCont{
+        flex-direction: column;
+        height: max-content;
+    }
+    .login-right{
+        width: 100%;
+        height: 80vh;
+    }
+    .login-left{
+        width: 100%;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        padding: 10px 0;
+        height: 50vh;
+    }
+    .login-left p{
+        font-size: 50px;
+        font-weight: 600;
+        /* margin-left: 30px;    */
+    }
+    .login-right-cont{
+        width: 80%;
+    }
 }

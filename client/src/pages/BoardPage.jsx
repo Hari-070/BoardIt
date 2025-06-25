@@ -7,6 +7,9 @@ import '../stylesheets/boardPage.css';
 import { FaRegTrashAlt } from "react-icons/fa";
 import logo from '../assets/logo.png'
 import Loader from '../components/Loader';
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
+import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
+import {motion } from 'framer-motion'
 
 const BoardPage = () => {
   const { id } = useParams();
@@ -43,7 +46,7 @@ const BoardPage = () => {
 
   useEffect(() => {
     fetchBoard();
-  }, [id]);
+  }, []);
 
   const handleAddImage = async () => {
     if (!imageURL.trim()) return toast.error('Enter a valid image URL');
@@ -88,6 +91,15 @@ const BoardPage = () => {
     } catch (err) {
       toast.error('Failed to delete image');
     }
+  }
+
+  const handleDragEnd = (result) => {
+    if (!result.destination) return;
+    console.log(result)
+    const newItems = Array.from(board.images);
+    const [movedItem] = newItems.splice(result.source.index, 1);
+    newItems.splice(result.destination.index, 0, movedItem);
+    setBoard({...board,images:newItems})
   };
 
   if (!board) return <div style={{width:'100%',height:"100vh",display:"flex",justifyContent:"center",alignItems:"center"}}><Loader/></div>;
@@ -118,14 +130,38 @@ const BoardPage = () => {
 
       <div className="board-images-wrapper">
         {board.images && board.images.length > 0 ? (
-          board.images.map((img) => (
-            <div key={img._id} className="image-container">
-              <img src={img.url} alt="board-img" className="board-image" />
-              <div className="image-overlay" >
-                <FaRegTrashAlt onClick={() => handleDeleteImage(img._id)} style={{marginTop:"5px",marginBottom:"5px"}}/>
-              </div>
+        <DragDropContext onDragEnd={handleDragEnd}>
+        <Droppable droppableId="images" direction="vertical">
+        {(provided) => (
+            <div ref={provided.innerRef} {...provided.droppableProps}>
+                <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 4 }}>
+                    <Masonry gutter="0px">
+                        {board.images.map((img,index) => (
+                            <Draggable key={img._id} draggableId={img._id} index={index} >
+                                {(provided)=>(
+                                    <div key={img._id} className="image-container" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}
+                                        
+                                    >
+                                    <motion.img src={img.url} alt="board-img" className="board-image"
+                                    initial={{opacity:0,y:10}}
+                                        animate={{opacity:1,y:0}}
+                                        transition={{duration:0.5}}
+                                        viewport={{once:true, amount:0.3}}
+                                     />
+                                    <div className="image-overlay" >
+                                        <FaRegTrashAlt onClick={() => handleDeleteImage(img._id)} style={{marginTop:"5px",marginBottom:"5px"}}/>
+                                    </div>
+                                    </div>
+                                )}
+                            </Draggable>
+                        ))}
+                        {provided.placeholder}
+                    </Masonry>
+                </ResponsiveMasonry>
             </div>
-          ))
+          )}
+        </Droppable>
+        </DragDropContext>
         ) : (
           <p className="no-images">No images in this board.</p>
         )}
