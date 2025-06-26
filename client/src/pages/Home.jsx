@@ -8,6 +8,7 @@ import toast from 'react-hot-toast';
 import logo from '../assets/logo.png'
 import { useNavigate } from 'react-router-dom';
 import Loader from '../components/Loader';
+import { CiMenuKebab } from "react-icons/ci";
 
 const Home = () => {
   const { auth, name } = useAuth();
@@ -15,6 +16,7 @@ const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const [newBoard, setNewBoard] = useState({ title: '', description: '' });
   const [loading,setLoading]=useState(false)
+  const [menu,setMenu]=useState(false)
   const navigate=useNavigate()
 
   const fetchBoards = async () => {
@@ -75,11 +77,19 @@ const Home = () => {
         <div className='landingNav'>
                 <nav>
                     <img src={logo} alt='logo' width="100px"/>
-                    <div style={{display:"flex",alignItems:"center"}}>
+                    {/* <div className='dropDownCont'>
+                      <button onClick={()=>setMenu(!menu)}><CiMenuKebab/></button>
+                    </div> */}
+                    <div style={{display:"flex",alignItems:"center"}} className='proLog'>
                         <p>{name || 'User'},</p>
                         <button className='land-start'>Profile</button>
                         <button className='land-login' onClick={handleLogout}>Logout</button>
                     </div>
+                    
+                    {/* {menu&&<div className='dropDownMenu'>
+                        <button className='land-start'>Profile</button>
+                        <button className='land-login' onClick={handleLogout}>Logout</button>
+                      </div>} */}
                 </nav>
             </div>
       <h2 className="welcome-text">Welcome, {name || 'User'}</h2>

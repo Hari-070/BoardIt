@@ -86,6 +86,28 @@
 .landing-hero p{
     font-size: 18px;
 }
+/* 
+.dropDownCont{
+    position: relative;
+    display: none;
+}
+.dropDownCont button{
+    border: none;
+    background-color: white;
+    color: black;
+    background: none;
+    cursor: pointer;
+    display: none;
+} */
+/* .proLog{
+    display: flex;
+}
+.dropDownMenu{
+    width: 100%;
+    position: absolute;
+    right: 0;
+} */
+
 
 @media (max-width:450px) {
     .landing-hero{
@@ -98,4 +120,23 @@
     .landing-hero img{
         width: 80%;
     }
+    .landingNav nav{
+        width: 100%;
+    }
+    /* .dropDownCont button{
+        display: block;
+        right: 0;
+    }
+    .dropDownCont{
+        right: 0;
+    }
+    .proLog p,.proLog button{
+        display: none;
+    } */
+     .proLog p{
+        display: none;
+     }
+     .proLog{
+        gap:5px;
+     }
 }
