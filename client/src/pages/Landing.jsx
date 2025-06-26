@@ -15,7 +15,7 @@ const Landing = () => {
       <div className='landingNav'>
         <nav>
             <img src={logo} alt='logo' width="100px"/>
-            <div>
+            <div >
                 <button className='land-start' onClick={handleStart}>Get Started</button>
                 <button className='land-login' onClick={handleStart}>Login</button>
             </div>

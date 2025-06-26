@@ -26,7 +26,7 @@ function App() {
         <Route path="/board/:id" element={<BoardPage />} />
       </Routes>
       </BrowserRouter>
-      <div className='chat-bot'>
+      <div className='chat-bot' onClick={()=>alert("Future Implementations")}>
         <MdMessage/>
       </div>
     </>

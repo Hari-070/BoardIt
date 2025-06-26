@@ -9,7 +9,7 @@
 }
 
 .landingNav nav{
-    width: 80%;
+    width: 70%;
     height: max-content;
     padding: 20px 20px;
     /* border: 2px solid var(--primary-color); */
@@ -25,9 +25,11 @@
 
 .landingNav nav div{
     display: flex;
+    align-items: center;
     gap: 20px;
     
 }
+
 
 .land-start{
     padding: 10px 20px ;
@@ -86,7 +88,7 @@
 .landing-hero p{
     font-size: 18px;
 }
-/* 
+
 .dropDownCont{
     position: relative;
     display: none;
@@ -98,8 +100,8 @@
     background: none;
     cursor: pointer;
     display: none;
-} */
-/* .proLog{
+} 
+/* /* .proLog{
     display: flex;
 }
 .dropDownMenu{
@@ -121,22 +123,21 @@
         width: 80%;
     }
     .landingNav nav{
-        width: 100%;
+        width: 80%;
     }
-    /* .dropDownCont button{
+    .dropDownCont button{
         display: block;
-        right: 0;
     }
     .dropDownCont{
-        right: 0;
+        display: block;
     }
-    .proLog p,.proLog button{
-        display: none;
-    } */
-     .proLog p{
+    
+     .landingNav nav div{
+        gap: 5px;
+        /* display: none; */
+     }
+     .landingNav nav div p{
         display: none;
      }
-     .proLog{
-        gap:5px;
-     }
+     
 }

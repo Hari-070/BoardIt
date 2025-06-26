@@ -111,7 +111,7 @@ const BoardPage = () => {
                             <img src={logo} alt='logo' width="100px"/>
                             <div style={{display:"flex",alignItems:"center"}}>
                                 <p>{name || 'User'},</p>
-                                <button className='land-start'>Profile</button>
+                                <button className='land-start' onClick={()=>alert("Future Implementation!")}>Profile</button>
                                 <button className='land-login' onClick={handleLogout}>Logout</button>
                             </div>
                         </nav>
@@ -188,7 +188,7 @@ const BoardPage = () => {
 
 
       {showEditModal && (
-        <div className="modal-overlay">
+        <div className="modal-overlay" >
           <div className="modal-card">
             <h3>Edit Board</h3>
             <input

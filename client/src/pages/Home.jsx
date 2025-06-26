@@ -80,9 +80,9 @@ const Home = () => {
                     {/* <div className='dropDownCont'>
                       <button onClick={()=>setMenu(!menu)}><CiMenuKebab/></button>
                     </div> */}
-                    <div style={{display:"flex",alignItems:"center"}} className='proLog'>
+                    <div >
                         <p>{name || 'User'},</p>
-                        <button className='land-start'>Profile</button>
+                        <button className='land-start' onClick={()=>alert("Future Implementation!")}>Profile</button>
                         <button className='land-login' onClick={handleLogout}>Logout</button>
                     </div>
                     
@@ -92,12 +92,14 @@ const Home = () => {
                       </div>} */}
                 </nav>
             </div>
-      <h2 className="welcome-text">Welcome, {name || 'User'}</h2>
-      <hr className="divider" />
-      <h3 className="section-title">Your Moodboards</h3>
+      <div style={{display:"flex",flexDirection:"column",margin:"0 10%",width:"80%"}}>
+        <h2 className="welcome-text">Welcome, {name || 'User'}</h2>
+        <hr className="divider" />
+        <h3 className="section-title">Your Moodboards</h3>
+      </div>
 
       {boards.length === 0 ? (
-            <div>
+            <div style={{display:"flex",flexDirection:"column",margin:"0 10%"}}>
             <p className="no-boards">You have no moodboards yet.</p>
             <div className="adding-board" onClick={() => setShowModal(true)}>
             <h1>+</h1>

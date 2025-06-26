@@ -180,3 +180,16 @@
   color: white;
 }
 
+@media (max-width:450px) {
+  .back-button{
+    left: 10px;
+  }
+  .board-actions{
+    justify-content: center;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .modal-card{
+    width: 80%;
+  }
+}
