@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../stylesheets/login.css'
 import { useState } from 'react'
 import axios from 'axios'
@@ -12,6 +12,12 @@ const Login = () => {
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
     const navigate=useNavigate()
+
+    useEffect(()=>{
+      if(auth.token){
+        navigate('/home')
+      }
+    })
 
     const handleLogin=async(e)=>{
         e.preventDefault()

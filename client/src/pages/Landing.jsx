@@ -1,15 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../stylesheets/landing.css'
 import logo from '../assets/logo.png'
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
 
 const Landing = () => {
     const navigate=useNavigate()
+    const {auth}=useAuth()
 
     const handleStart=()=>{
         navigate('/login')
     }
+
+    useEffect(()=>{
+      if(auth.token){
+        navigate('/home')
+      }
+    })
+
   return (
     <div>
       <div className='landingNav'>

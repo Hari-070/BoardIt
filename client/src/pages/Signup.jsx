@@ -1,16 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../stylesheets/login.css'
 import { useState } from 'react'
 import axios from 'axios'
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast';
+import { useAuth } from '../context/AuthContext';
 
 const Signup = () => {
+    const {auth}=useAuth()
     const [name,setName]=useState('')
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
     const navigate=useNavigate()
+
+    useEffect(()=>{
+          if(auth.token){
+            navigate('/home')
+          }
+        })
 
     const handleSignup=async(e)=>{
         e.preventDefault()
