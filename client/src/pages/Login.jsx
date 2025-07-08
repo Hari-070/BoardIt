@@ -11,13 +11,16 @@ const Login = () => {
     const {auth,setAuth,setName }=useAuth()
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
+
     const navigate=useNavigate()
 
-    useEffect(()=>{
-      if(auth.token){
-        navigate('/home')
-      }
-    })
+    // useEffect(()=>{
+    //   setTimeout(()=>{
+    //     if(auth.token){
+    //     navigate('/home')
+    //   }
+    //   },2000)
+    // },[auth.token])
 
     const handleLogin=async(e)=>{
         e.preventDefault()
@@ -31,6 +34,9 @@ const Login = () => {
             // console.log(res.data.message)
             toast.success(res.data.message)
             navigate('/home')
+            // setTimeout(()=>(
+            //   navigate('/home')
+            // ),2000)
             localStorage.setItem('userName',res.data.username);
             setAuth({...prev,token:localStorage.getItem('token')})
             setName(localStorage.getItem('userName'))

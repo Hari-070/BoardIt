@@ -21,6 +21,7 @@ const BoardPage = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [imageURL, setImageURL] = useState('');
   const [editedBoard, setEditedBoard] = useState({ title: '', description: '' });
+  const [loading,setLoading]=useState(false)
 
   const handleLogout=(e)=>{
     e.preventDefault()
@@ -47,6 +48,24 @@ const BoardPage = () => {
   useEffect(() => {
     fetchBoard();
   }, []);
+
+  const changeFile=async(e)=>{
+    setLoading(true)
+        // console.log(e.target.files[0]) 
+        const file=e.target.files[0]
+        if(!file) return
+        const data=new FormData();
+        data.append("file",file);
+        data.append("upload_preset","First_cloudinary_project");
+        data.append("cloud_name","dge5zlivy")
+
+        await axios.post("https://api.cloudinary.com/v1_1/dge5zlivy/image/upload",data)
+        .then(res=>{
+            // console.log(res.data.url);
+            setImageURL(res.data.url)
+            setLoading(false)
+        })
+    }
 
   const handleAddImage = async () => {
     if (!imageURL.trim()) return toast.error('Enter a valid image URL');
@@ -178,8 +197,10 @@ const BoardPage = () => {
               value={imageURL}
               onChange={(e) => setImageURL(e.target.value)}
             />
+            <p>-------or-------</p>
+            <input type='file' onChange={changeFile}/>
             <div className="modal-actions">
-              <button onClick={handleAddImage}>Add</button>
+              <button onClick={handleAddImage} disabled={loading}>{loading?'Uploading...':'Add'}</button>
               <button onClick={() => setShowImageModal(false)} className="cancel-btn">Cancel</button>
             </div>
           </div>

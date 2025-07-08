@@ -10,7 +10,8 @@ import Signup from './pages/Signup'
 import Toaster from 'react-hot-toast'
 import BoardPage from './pages/BoardPage'
 import { MdMessage } from "react-icons/md";
-import PrivateRoute from './components/PrivateRoute'
+import ErrorPage from './pages/ErrorPage'
+// import PrivateRoute from './components/PrivateRoute'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,8 +24,9 @@ function App() {
         <Route path='/' element={<Landing/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
-        <Route path='/home' element={<PrivateRoute><Home/></PrivateRoute>}/>
-        <Route path="/board/:id" element={<PrivateRoute><BoardPage /></PrivateRoute>} />
+        <Route path='/home' element={<Home/>}/>
+        <Route path="/board/:id" element={<BoardPage />} />
+        <Route path='/*' element={<ErrorPage/>}/>
       </Routes>
       </BrowserRouter>
       <div className='chat-bot' onClick={()=>alert("Future Implementations")}>

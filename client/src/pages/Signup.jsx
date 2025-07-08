@@ -14,11 +14,11 @@ const Signup = () => {
     const [password,setPassword]=useState('')
     const navigate=useNavigate()
 
-    useEffect(()=>{
-          if(auth.token){
-            navigate('/home')
-          }
-        })
+    // useEffect(()=>{
+    //       if(auth.token){
+    //         navigate('/home')
+    //       }
+    //     })
 
     const handleSignup=async(e)=>{
         e.preventDefault()

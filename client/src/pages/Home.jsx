@@ -35,7 +35,10 @@ const Home = () => {
 
   useEffect(() => {
     setLoading(true)
-    fetchBoards();
+    setTimeout(() => {
+      fetchBoards()
+    }, 2000);
+    
   }, [auth.token]);
 
   const handleLogout=(e)=>{

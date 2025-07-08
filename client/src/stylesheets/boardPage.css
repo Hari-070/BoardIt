@@ -179,6 +179,10 @@
   background-color: black;
   color: white;
 }
+.modal-actions button:disabled{
+  background-color: #ccc;
+  cursor: not-allowed;
+}
 
 @media (max-width:450px) {
   .back-button{

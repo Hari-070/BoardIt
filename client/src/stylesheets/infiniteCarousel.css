@@ -1,0 +1,15 @@
+.slider{
+    width: 90%;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: 0 auto;
+    /* background-color: rgba(0, 0, 0, 0.511); */
+}
+.item{
+    width: fit-content;
+    height: 30px;   
+    /* background-color: aqua; */
+    margin-left: 50px;
+}
